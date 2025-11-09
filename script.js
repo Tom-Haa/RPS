@@ -22,7 +22,7 @@ function getComputerChoice() {
     return choice
   }
 
-  //round logic
+  //round logic, might change later
   function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
   
