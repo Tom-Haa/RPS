@@ -1,6 +1,9 @@
+// init scores
 let humanScore = 0;
 let computerScore = 0;
 
+
+//generate bot choice
 function getComputerChoice() {
     const randomNum = Math.random();
     if (randomNum < 0.33) {
@@ -12,12 +15,14 @@ function getComputerChoice() {
     }
   }
 
+  //ask for player choice
   function getHumanChoice(){
     let choice = prompt("choose Rock, Paper or Scissors!")
 
     return choice
   }
-  
+
+  //round logic
   function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
   
@@ -45,12 +50,28 @@ function getComputerChoice() {
       console.log("Invalid choice!");
     }
   }
-  
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  
-  playRound(humanSelection, computerSelection);
-  
 
-  console.log(humanSelection);
-  console.log(computerSelection);
+
+
+  //play the game
+  function playGame() {
+    for (let i = 0; i < 5; i++) {
+      const humanSelection = getHumanChoice();
+      const computerSelection = getComputerChoice();
+      playRound(humanSelection, computerSelection);
+    }
+  
+    if (humanScore > computerScore) {
+      console.log("you win!");
+    } else if (humanScore < computerScore) {
+      console.log("you lose :D");
+    } else {
+      console.log("tie!");
+    }
+  }
+  
+  //finally: play the game :c
+  playGame(); 
+  
+  // final score log
+  console.log(`Final: human=${humanScore}, computer=${computerScore}`);
